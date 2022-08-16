@@ -6,6 +6,5 @@ services:
     image: check-lsgd-frontend
     build:
       context: ./client
-      target: production
     ports:
       - "3000:80"
