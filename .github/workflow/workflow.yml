@@ -1,0 +1,21 @@
+name: remote ssh command
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using ssh key
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd check-lsgd-vcb-momo/
+          git pull https://github.com/hophamlam/check-lsgd-vcb-momo.git
+          docker-compose -f .\docker-compose.server.yml -f .\docker-compose.frontend.yml -f .\docker-compose.cron.yml --env-file ./client/.env build
+          docker-compose -f .\docker-compose.server.yml -f .\docker-compose.frontend.yml -f .\docker-compose.cron.yml --env-file ./client/.env up -d
+          echo "hi!"
