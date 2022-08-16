@@ -38,7 +38,7 @@ const sendMessageDiscord = () => {
   
 }
 
-console.log(checkVCB())
+// console.log(checkVCB())
 
 cron.schedule('*/4 * * * *', () => {
 //run at every 4'
