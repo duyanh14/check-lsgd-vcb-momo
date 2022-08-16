@@ -15,11 +15,11 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd check-lsgd-vcb-momo/
-          git pull https://github.com/hophamlam/check-lsgd-vcb-momo.git
-          docker-compose -f docker-compose.server.yml  --env-file ./client/.env build
-          docker-compose -f docker-compose.frontend.yml --env-file ./client/.env build
-          docker-compose -f docker-compose.cron.yml --env-file ./client/.env build
-          docker-compose -f docker-compose.server.yml --env-file ./client/.env up -d
-          docker-compose -f docker-compose.frontend.yml --env-file ./client/.env up -d
-          docker-compose -f docker-compose.cron.yml --env-file ./client/.env up -d
+          sudo git pull https://github.com/hophamlam/check-lsgd-vcb-momo.git
+          sudo docker-compose -f docker-compose.server.yml  --env-file ./client/.env build
+          sudo docker-compose -f docker-compose.frontend.yml --env-file ./client/.env build
+          sudo docker-compose -f docker-compose.cron.yml --env-file ./client/.env build
+          sudo docker-compose -f docker-compose.server.yml --env-file ./client/.env up -d
+          sudo docker-compose -f docker-compose.frontend.yml --env-file ./client/.env up -d
+          sudo docker-compose -f docker-compose.cron.yml --env-file ./client/.env up -d
           echo "hi!"
