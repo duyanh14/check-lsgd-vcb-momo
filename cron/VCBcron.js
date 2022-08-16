@@ -9,51 +9,7 @@ var accountNumber = process.env.VCB_LOGIN_ACCOUNTNUMBER
 var vcbFetchLink = process.env.SERVER_URL + ':' + process.env.VCB_EXTERNAL_PORT+'/api/vcb/transactions'
 
 //test if works fine -> log "ko giao dịch" ; if api backend fail -> send discord message
-const checkVCB = () => {
-var date = new Date();
-console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(date));
 
-var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
-today = dd + '/' + mm + '/' + yyyy;
-
-var axios = require('axios');
-var data = JSON.stringify({
-  "begin": today,
-  "end": today,
-  "username": username,
-  "password": password,
-  "accountNumber": accountNumber
-});
-
-var config = {
-  method: 'post',
-  url: vcbFetchLink,
-  headers: { 
-    'Content-Type': 'application/json'
-  },
-  data : data
-};
-
-axios(config)
-.then(function (response) {
-  // console.log(JSON.stringify(response.data));
-  if(response.data.transactions.length == 0) {
-    console.log('Không có giao dịch')
-  }
-  else {
-    console.log(response.data.transactions)
-  }
-})
-
-  
-.catch(function (error) {
-  sendMessageDiscord()
-  console.log(error);
-});
-}
 
 const sendMessageDiscord = () => {
   var axios = require('axios');
@@ -81,14 +37,61 @@ const sendMessageDiscord = () => {
   });
   
 }
+
 console.log(checkVCB())
 
 cron.schedule('*/4 * * * *', () => {
 //run at every 4'
+const messageDiscord = "Vietcombank lỗi " + date
+
+
 var date = new Date();
-var messageDiscord = "Vietcombank lỗi " + date
-// console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(date));
-checkVCB()
+const checkVCB = () => {
+  var date = new Date();
+  console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(date));
+  
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  today = dd + '/' + mm + '/' + yyyy;
+  
+  var axios = require('axios');
+  var data = JSON.stringify({
+    "begin": today,
+    "end": today,
+    "username": username,
+    "password": password,
+    "accountNumber": accountNumber
+  });
+  
+  var config = {
+    method: 'post',
+    url: vcbFetchLink,
+    headers: { 
+      'Content-Type': 'application/json'
+    },
+    data : data
+  };
+  
+  axios(config)
+  .then(function (response) {
+    // console.log(JSON.stringify(response.data));
+    if(response.data.transactions.length == 0) {
+      console.log('Không có giao dịch')
+    }
+    else {
+      console.log(response.data.transactions)
+    }
+  })
+  
+    
+  .catch(function (error) {
+    sendMessageDiscord()
+    console.log(error);
+  });
+}
+  checkVCB()
 })
 }
 
