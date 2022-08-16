@@ -1,7 +1,7 @@
 # 
 ```bash
-docker-compose -f .\docker-compose.server.yml -f .\docker-compose.frontend.yml -f .\docker-compose.cron.yml --env-file ./client/.env build
-docker-compose -f .\docker-compose.server.yml -f .\docker-compose.frontend.yml -f .\docker-compose.cron.yml --env-file ./client/.env up -d
+docker-compose -f docker-compose.server.yml -f docker-compose.frontend.yml -f docker-compose.cron.yml --env-file ./client/.env build
+docker-compose -f docker-compose.server.yml -f docker-compose.frontend.yml -f docker-compose.cron.yml --env-file ./client/.env up -d
 
 docker-compose -f .\docker-compose.cron.yml --env-file ./client/.env up -d 
 ```
