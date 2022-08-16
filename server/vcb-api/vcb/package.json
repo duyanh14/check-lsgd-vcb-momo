@@ -33,7 +33,7 @@
     "jsonwebtoken": "^8.5.1",
     "keypairs": "^1.2.14",
     "mime": "^1.6.0",
-    "moment": "^2.26.0",
+    "moment": "^2.29.4",
     "moment-timezone": "^0.5.31",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
