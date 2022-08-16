@@ -1,9 +1,9 @@
 # 
 ```bash
-docker-compose -f docker-compose.server.yml -f docker-compose.frontend.yml -f docker-compose.cron.yml --env-file ./client/.env build
-docker-compose -f docker-compose.server.yml -f docker-compose.frontend.yml -f docker-compose.cron.yml --env-file ./client/.env up -d
+sudo docker-compose -f docker-compose.server.yml -f docker-compose.frontend.yml -f docker-compose.cron.yml --env-file ./client/.env build
+sudo docker-compose -f docker-compose.server.yml -f docker-compose.frontend.yml -f docker-compose.cron.yml --env-file ./client/.env up -d
 
-docker-compose -f .\docker-compose.cron.yml --env-file ./client/.env up -d 
+docker-compose -f docker-compose.cron.yml --env-file ./client/.env up -d 
 ```
 
 nano check-lsgd-vcb-momo/server/momo-api/src/getotp.php
@@ -14,7 +14,7 @@ nano check-lsgd-vcb-momo/server/momo-api/src/getotp.php
 # MOMO
 ## Getting started
 ```bash
-docker-compose -f .\docker-compose.momo.yml up -d
+docker-compose -f docker-compose.momo.yml up -d
 ```
 Find in 
 > momo-backend/momo-api/src/getotp.php
