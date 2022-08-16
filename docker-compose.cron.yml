@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  vcb-momo-cron:
+    build: ./cron/
+    image: vcb-momo-cron
+    container_name: vcb-momo-cron
+    command: npm start

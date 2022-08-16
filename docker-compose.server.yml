@@ -1,0 +1,70 @@
+version: "3.1"
+
+services:
+    vcb-api-app:
+        build: ./server/vcb-api/
+        image: vcb-api-app
+        container_name: vcb-api-app
+        restart: unless-stopped
+        ports:
+        - ${VCB_EXTERNAL_PORT}:${VCB_DOCKER_PORT}
+        depends_on:
+        - vcb-api-db
+    vcb-api-db:
+        image: mariadb:10.7
+        container_name: vcb-api-db
+        restart: unless-stopped
+        volumes:
+            - ./server/vcb-api/db:/var/lib/mysql
+        environment:
+            MYSQL_DATABASE: ${VCB_MYSQL_DATABASE}
+            MYSQL_USER: ${VCB_MYSQL_USER}
+            MYSQL_PASSWORD: ${VCB_MYSQL_PWD}
+            MYSQL_ROOT_PASSWORD: ${VCB_ROOT_PWD}
+    momo-api-app:
+        build: ./server/momo-api/
+        image: momo-api-app
+        container_name: momo-api-app
+        restart: unless-stopped
+        ports: 
+            - ${MOMO_EXTERNAL_PORT}:${MOMO_DOCKER_PORT}
+        volumes:
+            - ./server/momo-api/src:/var/www/html/
+        links:
+            - momo-api-db
+        networks:
+            - default
+    momo-api-db:
+        image: mysql:8.0
+        container_name: momo-api-db
+        restart: unless-stopped
+        # ports: 
+            # - "3308:3308"
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        volumes:
+            - ./server/momo-api/dump/momo.sql:/docker-entrypoint-initdb.d/momo.sql
+            # - ./conf:/etc/mysql/conf.d
+            # - persistent:/var/lib/mysql
+        networks:
+            - default
+    momo-api-phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: momo-api-phpmyadmin
+        links: 
+            - momo-api-db:momo-api-db
+        ports:
+            - ${MOMO_PHPMYADMIN_PORT}:80
+        environment:
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
+# volumes:
+#     persistent:
+# networks:
+#     hophamlam:   

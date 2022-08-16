@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  check-lsgd-frontend:
+    container_name: check-lsgd-frontend
+    image: check-lsgd-frontend
+    build:
+      context: ./client
+      target: production
+    ports:
+      - "3000:80"
