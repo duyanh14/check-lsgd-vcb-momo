@@ -10,38 +10,8 @@ var vcbFetchLink = process.env.SERVER_URL + ':' + process.env.VCB_EXTERNAL_PORT+
 
 //test if works fine -> log "ko giao dịch" ; if api backend fail -> send discord message
 
-
-const sendMessageDiscord = () => {
-  var axios = require('axios');
-  var FormData = require('form-data');
-  var data = new FormData();
-  data.append('content', messageDiscord);
-  
-  var config = {
-    method: 'post',
-    url: 'https://discord.com/api/webhooks/1008656290463109201/6YCO-J9pIF0EZv_4cylRueuPdvXU4KR2R9u3Rt8QmRUZrRtKKKj32qW0Fi1WAuA6DFRH',
-    headers: { 
-      'Content-Type': 'application/x-www-form-urlencoded', 
-      'Cookie': '__cfruid=be29ca0b0acd77d393277ec967425509a92b7aba-1660553750; __dcfduid=0f7577621c7811edbf7cdeffafb5e155; __sdcfduid=0f7577621c7811edbf7cdeffafb5e155fa163fdf4b26c835f5b8fa76777cef0c6ea7b05755fff7e0a324e03446dc7f86', 
-      ...data.getHeaders()
-    },
-    data : data
-  };
-  
-  axios(config)
-  .then(function (response) {
-    console.log(JSON.stringify(response.data));
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-  
-}
-
-// console.log(checkVCB())
-
 cron.schedule('*/4 * * * *', () => {
-//run at every 4'
+//run at every 4' 
 const messageDiscord = "Vietcombank lỗi " + date
 
 
@@ -91,8 +61,35 @@ const checkVCB = () => {
     console.log(error);
   });
 }
-  checkVCB()
-})
+const sendMessageDiscord = () => {
+  var axios = require('axios');
+  var FormData = require('form-data');
+  var data = new FormData();
+  data.append('content', messageDiscord);
+  
+  var config = {
+    method: 'post',
+    url: 'https://discord.com/api/webhooks/1008656290463109201/6YCO-J9pIF0EZv_4cylRueuPdvXU4KR2R9u3Rt8QmRUZrRtKKKj32qW0Fi1WAuA6DFRH',
+    headers: { 
+      'Content-Type': 'application/x-www-form-urlencoded', 
+      'Cookie': '__cfruid=be29ca0b0acd77d393277ec967425509a92b7aba-1660553750; __dcfduid=0f7577621c7811edbf7cdeffafb5e155; __sdcfduid=0f7577621c7811edbf7cdeffafb5e155fa163fdf4b26c835f5b8fa76777cef0c6ea7b05755fff7e0a324e03446dc7f86', 
+      ...data.getHeaders()
+    },
+    data : data
+  };
+  
+  axios(config)
+  .then(function (response) {
+    console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+  
 }
+  checkVCB()
+
+}
+)}
 
 module.exports = VCBcron;
