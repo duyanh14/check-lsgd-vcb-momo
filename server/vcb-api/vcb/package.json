@@ -14,7 +14,7 @@
     "@infosimples/node_two_captcha": "^1.0.2",
     "anticaptcha": "^2.0.3",
     "anticaptcha2": "^1.0.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.2",
     "azcaptcha": "^1.0.0",
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
