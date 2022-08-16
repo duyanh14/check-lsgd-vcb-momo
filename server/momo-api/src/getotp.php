@@ -7,7 +7,7 @@
 	$app = new MOMO('momo', 'user', 'test');
 
 	// Bước 1 lấy OTP
-	$result = $app->LoadData('your-momo-number')->sendOTP();
+	$result = $app->LoadData('0903048200')->sendOTP();
 
 	//Bước 2 Nhập OTP
 	//$result = $app->LoadData('')->importOTP('1264');
