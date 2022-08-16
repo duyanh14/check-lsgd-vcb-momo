@@ -7,7 +7,7 @@ services:
         container_name: vcb-api-app
         restart: unless-stopped
         ports:
-        - ${VCB_EXTERNAL_PORT}:${VCB_DOCKER_PORT}
+        - "${VCB_EXTERNAL_PORT}":"${VCB_DOCKER_PORT}"
         depends_on:
         - vcb-api-db
     vcb-api-db:
