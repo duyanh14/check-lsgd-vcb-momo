@@ -66,5 +66,5 @@ services:
 
 # volumes:
 #     persistent:
-# networks:
-#     hophamlam:   
+networks:
+    frontend:
