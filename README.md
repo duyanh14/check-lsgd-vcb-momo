@@ -14,7 +14,7 @@ sudo cp ~/.env ~/check-lsgd-vcb-momo/client
 nano ~/check-lsgd-vcb-momo/cron/.env
 nano ~/check-lsgd-vcb-momo/client/.env
 
-nano check-lsgd-vcb-momo/server/momo-api/src/getotp.php
+sudo nano ~/check-lsgd-vcb-momo/server/momo-api/src/getotp.php
 
 
 --env-file ./check-lsgd-frontend/.env up 

@@ -89,19 +89,19 @@ const getTransactionMomo = ()=> {
 
 getSessionMomo()
 
-cron.schedule('*/30 * * * *', () => {
-  getSessionMomo()
-  var currentTime = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'full', timeStyle: 'long' }).format(new Date())
-  console.log(currentTime)
-  console.log('running every 30 minutes');
-});
+// cron.schedule('*/30 * * * *', () => {
+//   getSessionMomo()
+//   var currentTime = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'full', timeStyle: 'long' }).format(new Date())
+//   console.log(currentTime)
+//   console.log('running every 30 minutes');
+// });
 
-cron.schedule('*/15 * * * *', () => {
-  getTransactionMomo()
-  var currentTime = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'full', timeStyle: 'long' }).format(new Date())
-  console.log(currentTime)
-  console.log('running every 15 minute');
-});
+// cron.schedule('*/15 * * * *', () => {
+//   getTransactionMomo()
+//   var currentTime = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'full', timeStyle: 'long' }).format(new Date())
+//   console.log(currentTime)
+//   console.log('running every 15 minute');
+// });
 
 }
 
