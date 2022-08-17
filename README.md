@@ -6,6 +6,14 @@ sudo docker-compose -f docker-compose.server.yml -f docker-compose.frontend.yml 
 docker-compose -f docker-compose.cron.yml --env-file ./client/.env up -d 
 ```
 
+nano ~/.env
+
+sudo cp ~/.env ~/check-lsgd-vcb-momo/cron
+sudo cp ~/.env ~/check-lsgd-vcb-momo/client
+
+nano ~/check-lsgd-vcb-momo/cron/.env
+nano ~/check-lsgd-vcb-momo/client/.env
+
 nano check-lsgd-vcb-momo/server/momo-api/src/getotp.php
 
 

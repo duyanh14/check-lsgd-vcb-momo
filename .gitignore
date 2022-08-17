@@ -3,3 +3,4 @@ cron/node_modules
 cron/.env
 server/momo-api/src/getotp.php
 server/vcb-api/db
+.env
