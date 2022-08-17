@@ -10,10 +10,10 @@
 	$result = $app->LoadData('0903048200')->sendOTP();
 
 	//Bước 2 Nhập OTP
-	//$result = $app->LoadData('')->importOTP('1264');
+	//$result = $app->LoadData('0903048200')->importOTP('1264');
 
 	//Bước 3: Đăng nhập với mật khẩu
-	// $result = $app->LoadData('')->LoginUser('062798');
+	// $result = $app->LoadData('0903048200')->LoginUser('062798');
 
 	// //Bước 3: Sau khi đăng nhập thì TOken sẽ sống trong 1 tiếng nên k cần đăng nhập nữa chỉ cần gọi thẳng bước 5 để lấy LSGD
 	//$result = $app->LoadData('')->CheckHisNew(3);
