@@ -12,10 +12,10 @@ var vcbFetchLink = process.env.SERVER_URL + ':' + process.env.VCB_EXTERNAL_PORT+
 
 cron.schedule('*/4 * * * *', () => {
 //run at every 4' 
-const messageDiscord = "Vietcombank lỗi " + date
+const messageDiscord = "Vietcombank lỗi " + new date();
 
 
-var date = new Date();
+// var date = new Date();
 const checkVCB = () => {
   var date = new Date();
   console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(date));
