@@ -5,6 +5,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '../client/.env') });
 const momoUrl = process.env.SERVER_URL + ':' + process.env.MOMO_EXTERNAL_PORT 
 var currentTime = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'full', timeStyle: 'long' }).format(new Date())
 console.log(currentTime)
+console.log(momoUrl)
 
 var messageDiscord = "MOMO lỗi"
 
@@ -89,19 +90,19 @@ const getTransactionMomo = ()=> {
 
 getSessionMomo()
 
-// cron.schedule('*/30 * * * *', () => {
-//   getSessionMomo()
-//   var currentTime = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'full', timeStyle: 'long' }).format(new Date())
-//   console.log(currentTime)
-//   console.log('running every 30 minutes');
-// });
+cron.schedule('*/30 * * * *', () => {
+  getSessionMomo()
+  var currentTime = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'full', timeStyle: 'long' }).format(new Date())
+  console.log(currentTime)
+  console.log('running every 30 minutes');
+});
 
-// cron.schedule('*/15 * * * *', () => {
-//   getTransactionMomo()
-//   var currentTime = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'full', timeStyle: 'long' }).format(new Date())
-//   console.log(currentTime)
-//   console.log('running every 15 minute');
-// });
+cron.schedule('*/15 * * * *', () => {
+  getTransactionMomo()
+  var currentTime = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'full', timeStyle: 'long' }).format(new Date())
+  console.log(currentTime)
+  console.log('running every 15 minute');
+});
 
 }
 

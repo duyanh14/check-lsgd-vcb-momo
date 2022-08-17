@@ -10,10 +10,13 @@ var password = process.env.REACT_APP_VCB_LOGIN_PASSWORD
 var accountNumber = process.env.REACT_APP_VCB_LOGIN_ACCOUNTNUMBER
 var vcbFetchLink = process.env.REACT_APP_SERVER_URL + ':' + process.env.REACT_APP_VCB_EXTERNAL_PORT+'/api/vcb/transactions'
 
-var username = "0938568040"
-var password = "UFTNG9uzq$zu%4bUNMau"
-var accountNumber = "1012842851"
-var vcbFetchLink = "http://103.130.219.9:4000/api/vcb/transactions"
+// var username = "0938568040"
+// var password = "UFTNG9uzq$zu%4bUNMau"
+// var accountNumber = "1012842851"
+// var vcbFetchLink = "http://103.130.219.9:4000/api/vcb/transactions"
+
+console.log(username + password + accountNumber)
+console.log(vcbFetchLink)
 
 //get today
 var today = () => moment().format("DD/MM/YYYY")

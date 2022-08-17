@@ -6,9 +6,9 @@ import { Badge } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 
 // require('dotenv').config({ path: path.resolve(__dirname, '../../.env') }); 
-// var username = process.env.VCB_LOGIN_USERNAME
-// console.log(username)
+
 const momoUrl = process.env.REACT_APP_SERVER_URL + ':' + process.env.REACT_APP_MOMO_EXTERNAL_PORT
+console.log(momoUrl)
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
