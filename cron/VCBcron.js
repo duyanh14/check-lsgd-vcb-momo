@@ -45,11 +45,6 @@ const sendMessageDiscord = () => {
   
 }
 
-//test if works fine -> log "ko giao dịch" ; if api backend fail -> send discord message
-
-cron.schedule('*/3 * * * *', () => {
-//Run every 4 minutes, between 06:00 AM and 07:59 PM
-
 const checkVCB = () => {
   var date = new Date();
   console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(date));
@@ -91,10 +86,15 @@ const checkVCB = () => {
   })
   
   .catch(function (error) {
-    // sendMessageDiscord()
+    sendMessageDiscord()
     console.log(error);
   });
 }
+
+//test if works fine -> log "ko giao dịch" ; if api backend fail -> send discord message
+
+cron.schedule('*/3 * * * *', () => {
+//Run every 4 minutes, between 06:00 AM and 07:59 PM
   checkVCB()
   console.log(new Date().toString())
   // sendMessageDiscord()
