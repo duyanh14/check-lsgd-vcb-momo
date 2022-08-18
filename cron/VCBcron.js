@@ -95,6 +95,7 @@ const sendMessageDiscord = () => {
   
 }
   checkVCB()
+  console(new Date())
 })
 
 }
