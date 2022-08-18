@@ -91,14 +91,16 @@ const checkVCB = () => {
   });
 }
 
+checkVCB()
+
 //test if works fine -> log "ko giao dịch" ; if api backend fail -> send discord message
 
-cron.schedule('*/3 * * * *', () => {
-//Run every 4 minutes, between 06:00 AM and 07:59 PM
-  checkVCB()
-  console.log(new Date().toString())
-  // sendMessageDiscord()
-})
+// cron.schedule('*/3 * * * *', () => {
+// //Run every 4 minutes, between 06:00 AM and 07:59 PM
+//   checkVCB()
+//   console.log(new Date().toString())
+//   // sendMessageDiscord()
+// })
 
 }
 
