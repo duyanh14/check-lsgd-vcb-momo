@@ -94,10 +94,9 @@ const checkVCB = () => {
     console.log(error);
   });
 }
-
-  // checkVCB()
+  checkVCB()
   console.log(new Date().toString())
-  sendMessageDiscord()
+  // sendMessageDiscord()
 })
 
 }
