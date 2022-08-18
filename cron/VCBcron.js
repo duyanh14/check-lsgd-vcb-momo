@@ -8,44 +8,45 @@ function VCBcron() {
 // var accountNumber = process.env.VCB_LOGIN_ACCOUNTNUMBER
 // var vcbFetchLink = process.env.SERVER_URL + ':' + process.env.VCB_EXTERNAL_PORT+'/api/vcb/transactions'
 
-var username = "0938568040"
-var password = "UFTNG9uzq$zu%4bUNMau"
-var accountNumber = "1012842851"
-var vcbFetchLink = "http://103.130.219.9:4000/api/vcb/transactions"
+
 
 // console.log(username + password + accountNumber)
 // console.log(vcbFetchLink)
 console.log(new Date().toString())
 
-const sendMessageDiscord = () => {
-  var messageDiscord = "Vietcombank lỗi " + new Date();
-  var axios = require('axios');
-  var FormData = require('form-data');
-  var data = new FormData();
-  data.append('content', messageDiscord);
+// const sendMessageDiscord = () => {
+//   var messageDiscord = "Vietcombank lỗi " + new Date();
+//   var axios = require('axios');
+//   var FormData = require('form-data');
+//   var data = new FormData();
+//   data.append('content', messageDiscord);
   
-  var config = {
-    method: 'post',
-    url: 'https://discord.com/api/webhooks/1008656290463109201/6YCO-J9pIF0EZv_4cylRueuPdvXU4KR2R9u3Rt8QmRUZrRtKKKj32qW0Fi1WAuA6DFRH',
-    headers: { 
-      'Content-Type': 'application/x-www-form-urlencoded', 
-      'Cookie': '__cfruid=be29ca0b0acd77d393277ec967425509a92b7aba-1660553750; __dcfduid=0f7577621c7811edbf7cdeffafb5e155; __sdcfduid=0f7577621c7811edbf7cdeffafb5e155fa163fdf4b26c835f5b8fa76777cef0c6ea7b05755fff7e0a324e03446dc7f86', 
-      ...data.getHeaders()
-    },
-    data : data
-  };
+//   var config = {
+//     method: 'post',
+//     url: 'https://discord.com/api/webhooks/1008656290463109201/6YCO-J9pIF0EZv_4cylRueuPdvXU4KR2R9u3Rt8QmRUZrRtKKKj32qW0Fi1WAuA6DFRH',
+//     headers: { 
+//       'Content-Type': 'application/x-www-form-urlencoded', 
+//       'Cookie': '__cfruid=be29ca0b0acd77d393277ec967425509a92b7aba-1660553750; __dcfduid=0f7577621c7811edbf7cdeffafb5e155; __sdcfduid=0f7577621c7811edbf7cdeffafb5e155fa163fdf4b26c835f5b8fa76777cef0c6ea7b05755fff7e0a324e03446dc7f86', 
+//       ...data.getHeaders()
+//     },
+//     data : data
+//   };
   
-  axios(config)
-  .then(function (response) {
-    console.log(JSON.stringify(response.data));
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+//   axios(config)
+//   .then(function (response) {
+//     console.log(JSON.stringify(response.data));
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
   
-}
+// }
 
 const checkVCB = () => {
+  var username = "0938568040"
+  var password = "UFTNG9uzq$zu%4bUNMau"
+  var accountNumber = "1012842851"
+  var vcbFetchLink = "http://103.130.219.9:4000/api/vcb/transactions"
   var date = new Date();
   console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(date));
   
@@ -86,7 +87,7 @@ const checkVCB = () => {
   })
   
   .catch(function (error) {
-    sendMessageDiscord()
+    // sendMessageDiscord()
     console.log(error);
   });
 }
