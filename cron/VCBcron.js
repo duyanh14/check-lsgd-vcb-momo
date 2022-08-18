@@ -13,8 +13,8 @@ var password = "UFTNG9uzq$zu%4bUNMau"
 var accountNumber = "1012842851"
 var vcbFetchLink = "http://103.130.219.9:4000/api/vcb/transactions"
 
-console.log(username + password + accountNumber)
-console.log(vcbFetchLink)
+// console.log(username + password + accountNumber)
+// console.log(vcbFetchLink)
 
 //test if works fine -> log "ko giao dịch" ; if api backend fail -> send discord message
 
