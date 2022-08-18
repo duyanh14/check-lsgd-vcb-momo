@@ -3,10 +3,15 @@ function VCBcron() {
 const cron = require('node-cron');
 require('dotenv').config(); 
 
-var username = process.env.VCB_LOGIN_USERNAME
-var password = process.env.VCB_LOGIN_PASSWORD
-var accountNumber = process.env.VCB_LOGIN_ACCOUNTNUMBER
-var vcbFetchLink = process.env.SERVER_URL + ':' + process.env.VCB_EXTERNAL_PORT+'/api/vcb/transactions'
+// var username = process.env.VCB_LOGIN_USERNAME
+// var password = process.env.VCB_LOGIN_PASSWORD
+// var accountNumber = process.env.VCB_LOGIN_ACCOUNTNUMBER
+// var vcbFetchLink = process.env.SERVER_URL + ':' + process.env.VCB_EXTERNAL_PORT+'/api/vcb/transactions'
+
+var username = "0938568040"
+var password = "UFTNG9uzq$zu%4bUNMau"
+var accountNumber = "1012842851"
+var vcbFetchLink = "http://103.130.219.9:4000/api/vcb/transactions"
 
 console.log(username + password + accountNumber)
 console.log(vcbFetchLink)
