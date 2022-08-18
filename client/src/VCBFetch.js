@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 import { Badge } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 
-var username = process.env.REACT_APP_VCB_LOGIN_USERNAME
-var password = process.env.REACT_APP_VCB_LOGIN_PASSWORD
-var accountNumber = process.env.REACT_APP_VCB_LOGIN_ACCOUNTNUMBER
-var vcbFetchLink = process.env.REACT_APP_SERVER_URL + ':' + process.env.REACT_APP_VCB_EXTERNAL_PORT+'/api/vcb/transactions'
+// var username = process.env.REACT_APP_VCB_LOGIN_USERNAME
+// var password = process.env.REACT_APP_VCB_LOGIN_PASSWORD
+// var accountNumber = process.env.REACT_APP_VCB_LOGIN_ACCOUNTNUMBER
+// var vcbFetchLink = process.env.REACT_APP_SERVER_URL + ':' + process.env.REACT_APP_VCB_EXTERNAL_PORT+'/api/vcb/transactions'
 
-// var username = "0938568040"
-// var password = "UFTNG9uzq$zu%4bUNMau"
-// var accountNumber = "1012842851"
-// var vcbFetchLink = "http://103.130.219.9:4000/api/vcb/transactions"
+var username = "0938568040"
+var password = "UFTNG9uzq$zu%4bUNMau"
+var accountNumber = "1012842851"
+var vcbFetchLink = "http://103.130.219.9:4000/api/vcb/transactions"
 
 console.log(username + password + accountNumber)
 console.log(vcbFetchLink)
