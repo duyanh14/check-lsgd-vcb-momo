@@ -81,7 +81,8 @@ const checkVCB = () => {
   axios(config)
   .then(function (response) {
     // console.log(JSON.stringify(response.data));
-    if(response.data.transactions.length == 0) {
+    console.log("Lấy giao dịch VCB thành công")
+    if(response.data.transactions.length === 0) {
       console.log('Không có giao dịch')
     }
     else {

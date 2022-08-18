@@ -1,5 +1,6 @@
-function MOMOcron() {
 var cron = require('node-cron');
+
+function MOMOcron() {
 // const path = require('path')
 // require('dotenv').config({ path: path.resolve(__dirname, '../client/.env') }); 
 // const momoUrl = process.env.SERVER_URL + ':' + process.env.MOMO_EXTERNAL_PORT 
@@ -49,7 +50,7 @@ const getSessionMomo = ()=> {
     .then(function (response) {
       console.log(JSON.stringify(response.data));
         if (response.data.message === "Thành công"){
-          return
+          console.log("Cron momo session thành công")
         } else {
           sendMessageDiscord()
         }
@@ -71,6 +72,7 @@ const getTransactionMomo = ()=> {
     
     axios(config)
     .then(function (response) {
+        console.log("Lấy giao dịch MOMO thành công")
         var allMomoNotification = response.data.message.data.notifications
     //   console.log(JSON.stringify(allMomoNotification));
       for (let i = 0 ; i < allMomoNotification.length ; i++) {
