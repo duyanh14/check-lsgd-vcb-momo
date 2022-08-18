@@ -1,6 +1,10 @@
 <?php 
 	include "class.momo-new.php";
 
+	header('Access-Control-Allow-Origin: http://localhost:4200');
+	header('Access-Control-Allow-Headers: *');
+	header('Access-Control-Allow-Methods: PUT, DELETE, POST, GET');
+
 	//Import database
 
 	// Khởi tạo class và điền tên_db, user, pass
