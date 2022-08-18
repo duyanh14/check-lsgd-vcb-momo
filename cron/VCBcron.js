@@ -91,7 +91,7 @@ const checkVCB = () => {
   })
   
   .catch(function (error) {
-    sendMessageDiscord()
+    // sendMessageDiscord()
     console.log(error);
   });
 }

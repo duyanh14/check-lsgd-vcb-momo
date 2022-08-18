@@ -5,9 +5,9 @@ function MOMOcron() {
 // require('dotenv').config({ path: path.resolve(__dirname, '../client/.env') }); 
 // const momoUrl = process.env.SERVER_URL + ':' + process.env.MOMO_EXTERNAL_PORT 
 const momoUrl = "http://103.130.219.9:8091"
-var currentTime = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'full', timeStyle: 'long' }).format(new Date())
-console.log(currentTime)
-console.log(momoUrl)
+// var currentTime = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'full', timeStyle: 'long' }).format(new Date())
+// console.log(currentTime)
+// console.log(momoUrl)
 
 var messageDiscord = "MOMO lỗi"
 
