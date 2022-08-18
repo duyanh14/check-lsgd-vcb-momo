@@ -1,8 +1,8 @@
+const cron = require('node-cron');
+
 function VCBcron() {
 
-const cron = require('node-cron');
-require('dotenv').config(); 
-
+// require('dotenv').config(); 
 // var username = process.env.VCB_LOGIN_USERNAME
 // var password = process.env.VCB_LOGIN_PASSWORD
 // var accountNumber = process.env.VCB_LOGIN_ACCOUNTNUMBER
@@ -15,14 +15,14 @@ var vcbFetchLink = "http://103.130.219.9:4000/api/vcb/transactions"
 
 // console.log(username + password + accountNumber)
 // console.log(vcbFetchLink)
+console.log(new Date().toString())
 
 //test if works fine -> log "ko giao dịch" ; if api backend fail -> send discord message
+sendMessageDiscord()
 
-cron.schedule('*/3 6-19 * * *', () => {
+cron.schedule('*/3 * * * *', () => {
 //Run every 4 minutes, between 06:00 AM and 07:59 PM
-const messageDiscord = "Vietcombank lỗi " + new date();
 
-// var date = new Date();
 const checkVCB = () => {
   var date = new Date();
   console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(date));
@@ -62,13 +62,13 @@ const checkVCB = () => {
     }
   })
   
-    
   .catch(function (error) {
     sendMessageDiscord()
     console.log(error);
   });
 }
 const sendMessageDiscord = () => {
+  var messageDiscord = "Vietcombank lỗi " + new Date();
   var axios = require('axios');
   var FormData = require('form-data');
   var data = new FormData();
@@ -94,8 +94,8 @@ const sendMessageDiscord = () => {
   });
   
 }
-  checkVCB()
-  console(new Date())
+  // checkVCB()
+  console.log(new Date().toString())
 })
 
 }

@@ -6163,17 +6163,14 @@ class MOMO
     public function REG_DEVICE_MSG()
     {
         $microtime = $this->get_microtime();
+      
         $header = array(
-            "agent_id: undefined",
-            "sessionkey:",
-            "user_phone: undefined",
-            "authorization: Bearer undefined",
+           
+            "authorization: Bearer",
             "msgtype: REG_DEVICE_MSG",
-            "Host: api.momo.vn",
-            "User-Agent: okhttp/3.14.17",
-            "app_version: 31028",
-            "app_code: 3.1.2",
-            "device_os: ANDROID"
+            "Host: owa.momo.vn",
+            "Accept: application/json",
+            "Content-Type: application/json",
         );
         $Data = array (
             'user' => $this->config['phone'],
@@ -6182,11 +6179,11 @@ class MOMO
             'lang'      => 'vi',
             'time'      => $microtime,
             'channel'   => 'APP',
-            'appVer'    => 31028,
-            'appCode'   => '3.1.2',
+            'appVer'    => 40100,
+            'appCode'   => '4.0.1',
             'deviceOS'  => 'ANDROID',
-            'buildNumber' => 0,
-            'appId'     => 'vn.momo.platform',
+            // 'buildNumber' => 0,
+            // 'appId'     => 'vn.momo.platform',
             'result'    => true,
             'errorCode' => 0,
             'errorDesc' => '',
@@ -6210,13 +6207,11 @@ class MOMO
             'extra' => 
             array (
               'ohash'     => $this->config['ohash'],
-              'AAID'      => $this->config["AAID"],
+              'AAID'      => '',
               'IDFA'      => '',
-              'TOKEN'     => $this->config["TOKEN"],
-              'SIMULATOR' => '',
+              'TOKEN'     => '',
+              'SIMULATOR' => 'false',
               'SECUREID'  => $this->config["SECUREID"],
-              'MODELID'   => $this->config["MODELID"],
-              'checkSum'  => '',
             ),
         );
         return $this->CURL("REG_DEVICE_MSG",$header,$Data);
@@ -6226,16 +6221,13 @@ class MOMO
     public function SEND_OTP_MSG()
     {
         $header = array(
-            "agent_id: undefined",
-            "sessionkey:",
-            "user_phone: undefined",
-            "authorization: Bearer undefined",
+            
+            "authorization: Bearer",
             "msgtype: SEND_OTP_MSG",
-            "Host: api.momo.vn",
-            "User-Agent: okhttp/3.14.17",
-            "app_version: 31028",
-            "app_code: 3.1.2",
-            "device_os: ANDROID"
+            "Host: owa.momo.vn",
+          
+            "Accept: application/json",
+            "Content-Type: application/json",
         );
         $microtime = $this->get_microtime();
         $Data = array (
@@ -6245,11 +6237,11 @@ class MOMO
             'lang' => 'vi',
             'time' => $microtime,
             'channel' => 'APP',
-            'appVer' => 31161,
-            'appCode' => '3.1.16',
+            'appVer' => 40100,
+            'appCode' => '4.0.1',
             'deviceOS' => 'ANDROID',
-            'buildNumber' => 0,
-            'appId' => 'vn.momo.platform',
+            // 'buildNumber' => 0,
+            // 'appId' => 'vn.momo.platform',
             'result' => true,
             'errorCode' => 0,
             'errorDesc' => '',
