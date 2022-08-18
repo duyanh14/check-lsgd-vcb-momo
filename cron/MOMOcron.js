@@ -40,7 +40,7 @@ const getSessionMomo = ()=> {
     var axios = require('axios');
     var config = {
       method: 'get',
-      url: momoUrl + '/getotp.php',
+      url: momoUrl + '/session.php',
       headers: { }
     };
     

@@ -16,9 +16,6 @@ jobs:
         script: |
           cd ~/check-lsgd-vcb-momo/
           sudo git restore .
-          sudo docker-compose -f docker-compose.server.yml  --env-file ./client/.env down
-          sudo docker-compose -f docker-compose.frontend.yml --env-file ./client/.env down
-          sudo docker-compose -f docker-compose.cron.yml --env-file ./client/.env down
           sudo git pull https://github.com/hophamlam/check-lsgd-vcb-momo.git
           sudo docker-compose -f docker-compose.server.yml  --env-file ./client/.env build
           sudo docker-compose -f docker-compose.frontend.yml --env-file ./client/.env build
