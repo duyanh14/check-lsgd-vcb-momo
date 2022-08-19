@@ -6,6 +6,7 @@ sudo docker-compose -f docker-compose.server.yml -f docker-compose.frontend.yml 
 docker-compose -f docker-compose.cron.yml --env-file ./client/.env up -d 
 ```
 
+go
 nano ~/.env
 
 sudo cp ~/.env ~/check-lsgd-vcb-momo/cron
