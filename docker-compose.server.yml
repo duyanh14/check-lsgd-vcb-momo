@@ -7,7 +7,7 @@ services:
         container_name: vcb-api-app
         restart: unless-stopped
         ports:
-            - "${VCB_EXTERNAL_PORT}:${VCB_DOCKER_PORT}"
+            - 4000:9898
         depends_on:
             - vcb-api-db
     vcb-api-db:
@@ -17,17 +17,17 @@ services:
         volumes:
             - ./server/vcb-api/db:/var/lib/mysql
         environment:
-            MYSQL_DATABASE: ${VCB_MYSQL_DATABASE}
-            MYSQL_USER: ${VCB_MYSQL_USER}
-            MYSQL_PASSWORD: ${VCB_MYSQL_PWD}
-            MYSQL_ROOT_PASSWORD: ${VCB_ROOT_PWD}
+            MYSQL_DATABASE: vcb
+            MYSQL_USER: root
+            MYSQL_PASSWORD: matkhaumysql
+            MYSQL_ROOT_PASSWORD: matkhaumysql
     momo-api-app:
         build: ./server/momo-api/
         image: momo-api-app
         container_name: momo-api-app
         restart: unless-stopped
         ports: 
-            - "${MOMO_EXTERNAL_PORT}:${MOMO_DOCKER_PORT}"
+            - "8091:80"
         volumes:
             - ./server/momo-api/src:/var/www/html/
         links:
@@ -42,10 +42,10 @@ services:
             - "3308:3308"
         command: --default-authentication-plugin=mysql_native_password
         environment:
-            MYSQL_DATABASE: ${MOMO_MYSQL_DATABASE}
-            MYSQL_USER: ${MOMO_MYSQL_USER}
-            MYSQL_PASSWORD: ${MOMO_MYSQL_PASSWORD}
-            MYSQL_ROOT_PASSWORD: ${MOMO_MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: momo
+            MYSQL_USER: user
+            MYSQL_PASSWORD: test
+            MYSQL_ROOT_PASSWORD: test
         volumes:
             - ./server/momo-api/dump/momo.sql:/docker-entrypoint-initdb.d/momo.sql
             # - ./conf:/etc/mysql/conf.d
