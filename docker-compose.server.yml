@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.8"
 
 services:
     vcb-api-app:
@@ -66,5 +66,5 @@ services:
 
 # volumes:
 #     persistent:
-# networks:
-#     frontend:
+networks:
+    frontend:
