@@ -48,40 +48,57 @@ const checkVCB = () => {
   var yyyy = today.getFullYear();
   today = dd + '/' + mm + '/' + yyyy;
   
-  var axios = require('axios');
-  var data = JSON.stringify({
-    "begin": today,
-    "end": today,
-    "username": username,
-    "password": password,
-    "accountNumber": accountNumber
-  });
+//   var axios = require('axios');
+//   var data = JSON.stringify({
+//     "begin": today,
+//     "end": today,
+//     "username": username,
+//     "password": password,
+//     "accountNumber": accountNumber
+//   });
   
-  var config = {
-    method: 'post',
-    url: vcbFetchLink,
-    headers: { 
-      'Content-Type': 'application/json'
-    },
-    data : data
-  };
+//   var config = {
+//     method: 'post',
+//     url: vcbFetchLink,
+//     headers: { 
+//       'Content-Type': 'application/json'
+//     },
+//     data : data
+//   };
   
-  axios(config)
-  .then(function (response) {
-    // console.log(JSON.stringify(response.data));
-    console.log("Lấy giao dịch VCB thành công")
-    if(response.data.transactions.length === 0) {
-      console.log('Không có giao dịch')
-    }
-    else {
-      console.log(response.data.transactions)
-    }
-  })
+//   axios(config)
+//   .then(function (response) {
+//     // console.log(JSON.stringify(response.data));
+//     console.log("Lấy giao dịch VCB thành công")
+//     if(response.data.transactions.length === 0) {
+//       console.log('Không có giao dịch')
+//     }
+//     else {
+//       console.log(response.data.transactions)
+//     }
+//   })
   
-  .catch(function (error) {
-    // sendMessageDiscord()
-    console.log(error);
-  });
+//   .catch(function (error) {
+//     // sendMessageDiscord()
+//     console.log(error);
+//   });
+
+var axios = require('axios');
+
+var config = {
+  method: 'get',
+  url: 'api.randomuser.me',
+  headers: { }
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
 }
 
 checkVCB()
