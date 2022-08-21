@@ -1,7 +1,10 @@
+var captcha_service = 'azcaptcha'
+var captcha_key = 'zwp0trqqgmoeghifeziuuthyajws2bxy'
+
 module.exports = {
     port: 9898,
     db_port: 3306,
-    db_host: 'vcb-api-db',
+    db_host: 'vcb-server-db',
     db_user: 'root', // ten user
     db_password: 'matkhaumysql', // mat khau 
     db_database: 'vcb', //ten database
@@ -10,7 +13,7 @@ module.exports = {
     bankLimit: 0,
     detect_ip: false,
     access_ip: ["0.0.0.0"],
-    captcha_service: 'azcaptcha', // azcaptcha, deathbycaptcha, twocaptcha, anticaptcha
-    captcha_key: ['zwp0trqqgmoeghifeziuuthyajws2bxy'], //key captcha
+    captcha_service: captcha_service, // azcaptcha, deathbycaptcha, twocaptcha, anticaptcha
+    captcha_key: [captcha_key], //key captcha
     lengthInPage: 10
 }

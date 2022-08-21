@@ -1,10 +1,10 @@
-// var VCBcron = require('./VCBcron');
+var VCBcron = require('./VCBcron');
 // var MOMOcron = require('./MOMOcron');
 
-// VCBcron();
+VCBcron();
 // MOMOcron();
 
-console.log(new Date().toString())
+// console.log(new Date().toString())
 
 // const sendMessageDiscord = () => {
 //   var messageDiscord = "Vietcombank lỗi " + new Date();
@@ -34,19 +34,19 @@ console.log(new Date().toString())
   
 // }
 
-const checkVCB = () => {
-  var username = "0938568040"
-  var password = "UFTNG9uzq$zu%4bUNMau"
-  var accountNumber = "1012842851"
-  var vcbFetchLink = "http://103.130.219.9:4000/api/vcb/transactions"
-  var date = new Date();
-  console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(date));
+// const checkVCB = () => {
+//   var username = "0901467300"
+//   var password = "UFTNG9uzq$zu%4bUNMau"
+//   var accountNumber = "123456789"
+//   var vcbFetchLink = "http://vcb-server-app:9898/api/vcb/transactions"
+//   var date = new Date();
+//   console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(date));
   
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  var yyyy = today.getFullYear();
-  today = dd + '/' + mm + '/' + yyyy;
+//   var today = new Date();
+//   var dd = String(today.getDate()).padStart(2, '0');
+//   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+//   var yyyy = today.getFullYear();
+//   today = dd + '/' + mm + '/' + yyyy;
   
 //   var axios = require('axios');
 //   var data = JSON.stringify({
@@ -83,22 +83,27 @@ const checkVCB = () => {
 //     console.log(error);
 //   });
 
-var axios = require('axios');
 
-var config = {
-  method: 'get',
-  url: 'api.randomuser.me',
-  headers: { }
-};
 
-axios(config)
-.then(function (response) {
-  console.log(JSON.stringify(response.data));
-})
-.catch(function (error) {
-  console.log(error);
-});
 
-}
+// test
 
-checkVCB()
+// var axios = require('axios');
+
+// var config = {
+//   method: 'get',
+//   url: 'https://api.randomuser.me',
+//   headers: { }
+// };
+
+// axios(config)
+// .then(function (response) {
+//   console.log(JSON.stringify(response.data));
+// })
+// .catch(function (error) {
+//   console.log(error);
+// });
+
+// }
+
+// checkVCB()

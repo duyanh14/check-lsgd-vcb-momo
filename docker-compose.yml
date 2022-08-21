@@ -1,0 +1,71 @@
+version: "3.8"
+
+services:
+  vcb-server-app:
+    build: ./server/vcb-api/
+    image: vcb-server-app
+    container_name: vcb-server-app
+    restart: unless-stopped
+    expose:
+      - "9898"
+    depends_on:
+      - vcb-server-db
+  vcb-server-db:
+    image: mariadb:10.7
+    container_name: vcb-server-db
+    restart: unless-stopped
+    expose:
+      - "3306"
+    volumes:
+      - ./server/vcb-api/db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: vcb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: matkhaumysql
+      MYSQL_ROOT_PASSWORD: matkhaumysql
+  momo-server-app:
+    build: ./server/momo-api/
+    image: momo-server-app
+    container_name: momo-server-app
+    restart: unless-stopped
+    ports: 
+      - "8091:80"
+    expose:
+      - "80"
+    volumes:
+      - ./server/momo-api/src:/var/www/html/
+    links:
+      - momo-server-db
+  momo-server-db:
+    image: mysql:8.0
+    container_name: momo-server-db
+    restart: unless-stopped
+    # ports: 
+    #   - "3308:3308"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: momo
+      MYSQL_USER: user
+      MYSQL_PASSWORD: test
+      MYSQL_ROOT_PASSWORD: test
+    volumes:
+      - ./server/momo-api/dump/momo.sql:/docker-entrypoint-initdb.d/momo.sql
+  lsgd-client:
+    container_name: lsgd-client
+    image: lsgd-client
+    build:
+      context: ./client
+    ports:
+      - "3000:80"
+  vcb-momo-cron:
+    build: ./cron/
+    image: vcb-momo-cron
+    container_name: vcb-momo-cron
+    depends_on:
+      - "vcb-server-app"
+    # entrypoint: [ "./wait-for-it.sh", "vcb-server-app:9898", "--", "node", "index.js" ]
+    # command: ["./wait-for-it.sh", "vcb-server-app:9898", "--", "node", "index.js"]
+
+networks:
+    default:
+      name: lsgd-hophamlam-stack
