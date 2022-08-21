@@ -46,7 +46,8 @@ const checkVCB = () => {
   var username = "0938568040"
   var password = "UFTNG9uzq$zu%4bUNMau"
   var accountNumber = "1012842851"
-  var vcbFetchLink = "http://103.130.219.9:4000/api/vcb/transactions"
+  var vcbFetchLink = "http://vcb-server-app:9898/api/vcb/transactions"
+  
   var date = new Date();
   console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(date));
   
