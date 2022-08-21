@@ -71,3 +71,4 @@ services:
 networks:
     default:
       name: lsgd-hophamlam-stack
+    nginx-proxy-manager_default:
