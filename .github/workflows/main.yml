@@ -17,10 +17,6 @@ jobs:
           cd ~/check-lsgd-vcb-momo/
           sudo git restore .
           sudo git pull https://github.com/hophamlam/check-lsgd-vcb-momo.git
-          sudo docker-compose -f docker-compose.server.yml build
-          sudo docker-compose -f docker-compose.frontend.yml build
-          sudo docker-compose -f docker-compose.cron.yml build
-          sudo docker-compose -f docker-compose.server.yml up -d
-          sudo docker-compose -f docker-compose.frontend.yml up -d
-          sudo docker-compose -f docker-compose.cron.yml up -d
+          sudo docker-compose build
+          sudo docker-compose up -d
           echo "hi!"
