@@ -8,6 +8,8 @@ services:
     restart: unless-stopped
     expose:
       - "9898"
+    ports:
+      - "4000:9898"
     depends_on:
       - vcb-server-db
   vcb-server-db:

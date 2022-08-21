@@ -7,6 +7,8 @@ import { Nav } from "react-bootstrap";
 
 // require('dotenv').config({ path: path.resolve(__dirname, '../../.env') }); 
 
+//103.130.219.9
+
 const momoUrl = "http://momo-server-app:80"
 console.log(momoUrl)
 

@@ -10,10 +10,12 @@ import { Nav } from "react-bootstrap";
 // var accountNumber = process.env.REACT_APP_VCB_LOGIN_ACCOUNTNUMBER
 // var vcbFetchLink = process.env.REACT_APP_SERVER_URL + ':' + process.env.REACT_APP_VCB_EXTERNAL_PORT+'/api/vcb/transactions'
 
+//103.130.219.9
+
 var username = "0938568040"
 var password = "UFTNG9uzq$zu%4bUNMau"
 var accountNumber = "1012842851"
-var vcbFetchLink = "http://vcb-server-app:9898/api/vcb/transactions"
+var vcbFetchLink = "http://103.130.219.9:4000/api/vcb/transactions"
 
 console.log(username + password + accountNumber)
 console.log(vcbFetchLink)

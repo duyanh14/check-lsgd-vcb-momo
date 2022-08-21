@@ -1,6 +1,4 @@
-const cron = require('node-cron');
-
-function VCBcron() {
+function CheckVCB() {
 
 // require('dotenv').config(); 
 // var username = process.env.VCB_LOGIN_USERNAME
@@ -95,15 +93,6 @@ const checkVCB = () => {
 
 checkVCB()
 
-//test if works fine -> log "ko giao dịch" ; if api backend fail -> send discord message
-
-cron.schedule('*/3 * * * *', () => {
-//Run every 4 minutes, between 06:00 AM and 07:59 PM
-  checkVCB()
-  console.log(new Date().toString())
-  // sendMessageDiscord()
-})
-
 }
 
-module.exports = VCBcron;
+module.exports = CheckVCB;
