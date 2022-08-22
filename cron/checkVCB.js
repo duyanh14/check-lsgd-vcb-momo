@@ -61,7 +61,7 @@ function CheckVCB() {
 
   // console.log(username + password + accountNumber)
   // console.log(vcbFetchLink)
-  console.log(new Date().toString());
+  // console.log(new Date().toString());
 
   const sendMessageDiscord = () => {
     var messageDiscord = "Vietcombank lỗi " + new Date();
@@ -128,7 +128,7 @@ function CheckVCB() {
     axios(config)
       .then(function (response) {
         // console.log(JSON.stringify(response.data));
-        console.log("Lấy giao dịch VCB thành công");
+        // console.log("Lấy giao dịch VCB thành công");
         if (response.data.transactions.length === 0) {
           console.log("Không có giao dịch");
         } else {

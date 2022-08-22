@@ -207,7 +207,7 @@ class MOMO
         return $this;
     }
 
-    public function __construct($database_name, $username, $password, $host = 'momo-api-db', $proxy = '')
+    public function __construct($database_name, $username, $password, $host = 'momo-server-db', $proxy = '')
     {
         $this->connect = mysqli_connect($host, $username, $password, $database_name);
         if(!empty($proxy)) $this->proxy = trim($proxy);
