@@ -13,7 +13,7 @@ module.exports = {
     bankLimit: 0,
     detect_ip: false,
     access_ip: ["0.0.0.0"],
-    captcha_service: captcha_service, // azcaptcha, deathbycaptcha, twocaptcha, anticaptcha
-    captcha_key: [captcha_key], //key captcha
+    captcha_service: 'azcaptcha', // azcaptcha, deathbycaptcha, twocaptcha, anticaptcha
+    captcha_key: ['djiktpga5az3fqotxmjkizerun4v9bwf'], //key captcha
     lengthInPage: 10
 }
